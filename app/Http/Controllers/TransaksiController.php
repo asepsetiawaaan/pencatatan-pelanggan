@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use App\Models\Customers;
+use App\Exports\TransaksiExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class TransaksiController extends Controller
@@ -117,5 +119,10 @@ class TransaksiController extends Controller
  
         return redirect()->route('/transaksi')
                         ->with('success','Transaksi deleted successfully');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new TransaksiExport, 'transaksi.xlsx');
     }
 }

@@ -93,7 +93,7 @@
                                         </select>
                                         <small id="emailHelp" class="form-text text-muted">Batas eksport menentukan jumlah data yang ditarik dari database</small>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Eksport Data</button>
+                                    <a href="{{ route('customers.exsport') }}" type="button" class="btn btn-primary">Eksport Data</a >
                                 </form>
                             </div>
                         </div>

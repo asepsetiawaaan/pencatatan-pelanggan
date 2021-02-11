@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customers;
+use App\Exports\CustomersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CustomersController extends Controller
 {
@@ -116,5 +118,10 @@ class CustomersController extends Controller
  
         return redirect()->route('/customers')
                         ->with('success','Customers deleted successfully');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new CustomersExport, 'customers.xlsx');
     }
 }

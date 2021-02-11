@@ -20,21 +20,19 @@ Route::get('/', function () {
 
 Route::prefix('/customers')->group( function(){
     Route::post('/create', 'CustomersController@store')->name('customers.create');
-
     Route::get('/update/{name}', 'CustomersController@edit')->name('customers.edit');
     Route::post('/update/{name}', 'CustomersController@update')->name('customers.update');
-
+    Route::get('/exsport', 'CustomersController@export')->name('customers.exsport');
     Route::delete('/delete/{name}', 'CustomersController@destroy')->name('customers.destroy');
     Route::get('/', 'CustomersController@index')->name('/customers');
 });
 
 Route::prefix('/transaksi')->group( function(){
     Route::post('/create', 'TransaksiController@store')->name('transaksi.create');
-
     Route::get('/update/{name}', 'TransaksiController@edit')->name('transaksi.edit');
     Route::post('/update/{name}', 'TransaksiController@update')->name('transaksi.update');
-
     Route::delete('/delete/{name}', 'TransaksiController@destroy')->name('transaksi.destroy');
+    Route::get('/exsport', 'TransaksiController@export')->name('transaksi.exsport');
     Route::get('/', 'TransaksiController@index')->name('/transaksi');
 });
 
